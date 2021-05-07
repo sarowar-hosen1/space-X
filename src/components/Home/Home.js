@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import Pagination from '../Pagination/Pagination';
 import SideBar from '../SideBar/SideBar';
 import SpaceXList from '../SpaceXList/SpaceXList';
 import './Home.css';
 
 const Home = () => {
     const [spaceXList, setSpaceXList] = useState([])
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [listPerPage] = useState(9);
+
+    const indexOfLastSpaceX = currentPage * listPerPage;
+    const indexOfFirstSpaceX = indexOfLastSpaceX - listPerPage;
+    const currentSpaceX = spaceXList.slice(indexOfFirstSpaceX, indexOfLastSpaceX);
+
 
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches?limit=100')
@@ -36,6 +45,8 @@ const Home = () => {
         .then(data => setSpaceXList(data))
     }
 
+    //page change
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div className="home">
@@ -46,7 +57,8 @@ const Home = () => {
                         <SideBar handleYear={handleYear} handleLaunch={handleLaunch} handleLanding={handleLanding} handleClearFilter={handleClearFilter} key="abc"></SideBar>
                     </div>
                     <div className="col-md-10 col-sm-12">
-                        <SpaceXList spaceXList={spaceXList}></SpaceXList>
+                        <SpaceXList currentSpaceX={currentSpaceX}></SpaceXList>
+                        <Pagination listPerPage={listPerPage} totalList={spaceXList.length} paginate={paginate} ></Pagination>
                     </div>
                 </div>  
                 <h6 className='text-center pb-4'>Developer by <span>Sarowar Hosen</span></h6>

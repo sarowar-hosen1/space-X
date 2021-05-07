@@ -2,7 +2,7 @@ import React from 'react';
 import {ScaleLoader} from 'react-spinners';
 import './SpaceXList.css';
 
-const SpaceXList = ({spaceXList}) => {
+const SpaceXList = ({currentSpaceX}) => {
 
     
 
@@ -10,8 +10,8 @@ const SpaceXList = ({spaceXList}) => {
         <div className="spaceX-list">
             <div className="row">
                 {
-                    spaceXList.length ? 
-                    spaceXList.map(spaceX =>
+                    currentSpaceX.length ? 
+                    currentSpaceX.map(spaceX =>
                         <div className="col-md-4 col-sm-6 col-12">
                             <div className="card">
                                 <div className="card-img-top">
