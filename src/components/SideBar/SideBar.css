@@ -1,0 +1,11 @@
+.side-bar{
+    background-color: white;
+    padding: 10px;
+}
+.side-bar p { 
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
