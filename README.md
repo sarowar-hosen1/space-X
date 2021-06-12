@@ -2,7 +2,10 @@
 
 [Live Server](https://spacex01.netlify.app/)
 
-[Project Link](https://github.com/sarowar-hosen1/space-X)
+SpaceX is is application where listed all space information. People can see the all list of space and filter it by year and successfully luanch or not.
+</br>
+</br>
+Main API URL (https://api.spacexdata.com/v3/launches?limit=100)
 
 ## Tools and technology
 
